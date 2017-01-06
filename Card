@@ -1,0 +1,36 @@
+public class Card 
+{
+	private char suit, face;
+	public Card()
+	{
+		face='A';
+		suit='\u2665';
+	}
+
+	public Card(char f, char s)
+	{
+		face=f;
+		suit=s;
+	}
+	public String toString()
+	{
+		return face+""+suit;
+	}
+
+	public char getSuit() 
+	{
+		return suit;
+	}
+	public boolean compareSuits(Card c)// so I could compare the suits of the two cards against each other.
+	{
+		if(this.getSuit()==c.getSuit())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+}
