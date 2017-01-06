@@ -1,0 +1,69 @@
+import java.util.*;
+public class Deck 
+{
+	private Card[]arr=new Card[52];
+	private Random r=new Random();
+
+	public Deck()
+	{  int f=0,s=0, i=0;
+	char face=' ', suit=' ';
+	for (s=1;s<=4;s++){
+
+		switch(s){
+		case 1: suit='\u2665'; break;
+		case 2: suit='\u2666'; break;
+		case 3: suit='\u2660'; break;
+		case 4: suit='\u2663'; break;
+
+		}
+		for(f=1;f<=13;f++)
+		{  switch(f)
+			{
+			case 1: face='A'; break;
+			case 10: face='T'; break;
+			case 11: face='J' ; break;
+			case 12: face='Q'; break;
+			case 13: face= 'K'; break;
+			default: face=(char)(f+'0');
+			}
+
+		arr[i]=new Card(face,suit);
+		i++;
+		}
+	}
+	}
+	public void showCard()
+	{
+		int i=0;
+
+		for(i=0;i<arr.length;i++)
+		{if (i%13==0)
+			System.out.println();
+		System.out.print(arr[i]+" , ");
+		}
+	}
+
+	public void shufflecards()
+	{
+		int i=0;
+		int n=0;
+		Card temp=new Card();
+		for(i=0;i<arr.length;i++)
+		{
+			n=r.nextInt(52);
+			temp=arr[i];
+			arr[i]=arr[n];
+			arr[n]=temp;
+
+		}
+
+	}
+
+	public Card pickCard()//my randomizer for picking a card in the deck of cards.
+	{ Card c1=new Card();
+	c1=arr[r.nextInt(52)];
+
+
+	return c1;	
+	}
+}
