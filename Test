@@ -1,11 +1,11 @@
+
+import java.util.ArrayList;
+
 /*Programmers: Collin Palmer, and Zachariah Pelletier
  * MP1 COSC 211
- * Purpose: To draw a random card from a deck put it back
- *  in the deck while pulling many more cards
- * out only printing the ones of different suits until 
- * you have four cards of different suits, also 
- * to count how many times the program picked cards 
- * to finish this task.
+ * Purpose: To draw a random card from a deck put it back in the deck while pulling many more cards
+ * out only printing the ones of different suits until you have four cards of different suits, also 
+ * to count how many times the program picked cards to finish this task.
  *
  */
 
@@ -17,23 +17,22 @@ public class Test
 	public static void main(String[] args) 
 	{
 		Deck d1=new Deck();
-		Card [] ca=new Card[4];
+		ArrayList<Card> ca=new ArrayList<Card>(4);
 		boolean done=false;
 		int counter=1;
-	
-		// declaring what 1st position
-		//card will be for comparison;
-	
+		ca.add(d1.pickCard());// declaring what 1st position card will be for comparison;
+		ca.add(d1.pickCard());
+		ca.add(d1.pickCard());
+		ca.add(d1.pickCard());
 		
 
-		
 		while(done==false)
 		{
-			ca[0]=d1.pickCard();
-			ca[1]=d1.pickCard();
-			ca[2]=d1.pickCard();
-			ca[3]=d1.pickCard();
-			if(ca[0].compareall(ca[1], ca[2], ca[3])==true)// calling my compare all method.
+			ca.set(0, d1.pickCard());
+			ca.set(1, d1.pickCard());
+			ca.set(2, d1.pickCard());
+			ca.set(3, d1.pickCard());
+			if(ca.get(0).compareall(ca.get(1), ca.get(2), ca.get(3))==true)// calling my compare all method.
 			{
 				
 				for(Card e:ca)
@@ -50,14 +49,10 @@ public class Test
 				counter++;
 				done=false;
 			}
-			
+
 		}
-
-
-		
 		System.out.println("The number of picks is: "+counter);	
-		System.out.println("Thank you for using Collin Palmer"
-				+ " and Zachariah Pelletier Program");// output at the end to 
+		System.out.println("Thank you for using Collin Palmer's and Zachariah Pelletier's Program");// output at the end to 
 		//how many picks and programmers are again.
 	}
 
