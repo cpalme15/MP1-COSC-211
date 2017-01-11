@@ -8,7 +8,7 @@ public class Card
 	}
 
 	public Card(char f, char s)
-	{
+	{ 
 		face=f;
 		suit=s;
 	}
@@ -21,7 +21,8 @@ public class Card
 	{
 		return suit;
 	}
-	public boolean compareSuits(Card c)// so I could compare the suits of the two cards against each other.
+	public boolean compareSuits(Card c)// so I could compare the suits 
+	//of the two cards against each other.
 	{
 		if(this.getSuit()==c.getSuit())
 		{
@@ -33,4 +34,17 @@ public class Card
 		}
 
 	}
+	public boolean compareall( Card c1, Card c2, Card c3) {
+		if(this.compareSuits(c1)==false&& this.compareSuits(c2)==false&&this.compareSuits(c3)==false&&
+				//this compares all the cards to one another
+				c1.compareSuits(c2)==false&&c1.compareSuits(c3)==false
+				&&c2.compareSuits(c3)==false){
+			return true;
+		}
+		else 
+			return false;
+		
+		
+	}
+	
 }
