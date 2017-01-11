@@ -1,8 +1,11 @@
 /*Programmers: Collin Palmer, and Zachariah Pelletier
  * MP1 COSC 211
- * Purpose: To draw a random card from a deck put it back in the deck while pulling many more cards
- * out only printing the ones of different suits until you have four cards of different suits, also 
- * to count how many times the program picked cards to finish this task.
+ * Purpose: To draw a random card from a deck put it back
+ *  in the deck while pulling many more cards
+ * out only printing the ones of different suits until 
+ * you have four cards of different suits, also 
+ * to count how many times the program picked cards 
+ * to finish this task.
  *
  */
 
@@ -17,51 +20,44 @@ public class Test
 		Card [] ca=new Card[4];
 		boolean done=false;
 		int counter=1;
-		ca[0]=d1.pickCard();// declaring what 1st position card will be for comparison;
+	
+		// declaring what 1st position
+		//card will be for comparison;
+	
 		
+
 		
-		while(done==false){
-			Card c1=new Card();
-			c1=d1.pickCard();
-			if(c1.compareSuits(ca[0])==false)
+		while(done==false)
+		{
+			ca[0]=d1.pickCard();
+			ca[1]=d1.pickCard();
+			ca[2]=d1.pickCard();
+			ca[3]=d1.pickCard();
+			if(ca[0].compareall(ca[1], ca[2], ca[3])==true)// calling my compare all method.
 			{
-				ca[1]=c1;
-				c1=d1.pickCard();//setting the first off suit card into its position.
-				counter++;
-				if(c1.compareSuits(ca[0])==false&c1.compareSuits(ca[1])==false)
+				
+				for(Card e:ca)
 				{
-					ca[2]=c1;
-					c1=d1.pickCard();// setting the second off suit card into its position.
-					counter++;
-					if(c1.compareSuits(ca[0])==false&c1.compareSuits(ca[1])==false&c1.compareSuits(ca[2])==false)
-					{
-						ca[3]=c1;
-						done=true;
-						counter++;
-						for(Card element:ca)//printing out only the set of cards that made it all the way through.
-						{
-							System.out.println(element);
-						}
-					}
-					else{
-						counter++;
-					}
-
+					System.out.println(e);
 				}
-				else{
-					counter++;
-				}
-
+				counter++;
+				done=true;
+				
 			}
+			
 			else
 			{
-				counter++;// counting any cards that may have been missed on the way through the loop.
+				counter++;
+				done=false;
 			}
-
-
+			
 		}
+
+
+		
 		System.out.println("The number of picks is: "+counter);	
-		System.out.println("Thank you for using Collin Palmer and Zachariah Pelletier Program");// output at the end to 
+		System.out.println("Thank you for using Collin Palmer"
+				+ " and Zachariah Pelletier Program");// output at the end to 
 		//how many picks and programmers are again.
 	}
 
